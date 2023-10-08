@@ -406,10 +406,12 @@ function convertImageToCompatiblePngAsync(
       .options({
         imageMagick: config.useImageMagick === true
       })
+	  .type(pageConfig.colorMode)
       .dither(pageConfig.dither)
+//	  .colors(8)
       .rotate("white", pageConfig.rotation)
-      //.map("/app/colortable8.png")
-      .type(pageConfig.colorMode)
+      .map("/app/colortable6.png")
+ //     .type(pageConfig.colorMode)
       .bitdepth(pageConfig.grayscaleDepth)
       .quality(100)
       .write(outputPath, (err) => {
